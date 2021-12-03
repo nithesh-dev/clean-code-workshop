@@ -24,4 +24,8 @@ public class Movie {
     public String getTitle() {
         return title;
     }
+
+    public boolean isNewRelease() {
+        return priceCode == NEW_RELEASE;
+    }
 }

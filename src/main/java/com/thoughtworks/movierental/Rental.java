@@ -9,10 +9,6 @@ public class Rental {
         this.daysRented = daysRented;
     }
 
-    public int getDaysRented() {
-        return daysRented;
-    }
-
     public Movie getMovie() {
         return movie;
     }
@@ -35,5 +31,21 @@ public class Rental {
                 break;
         }
         return amount;
+    }
+
+    public int frequentRenterPoints() {
+        int frequentRenterPoints = 1;
+
+        if (isBonusApplicable())
+            frequentRenterPoints++;
+        return frequentRenterPoints;
+    }
+
+    private boolean isBonusApplicable() {
+        return movie.isNewRelease() && isDaysRentedMoreThanADay();
+    }
+
+    private boolean isDaysRentedMoreThanADay() {
+        return daysRented > 1;
     }
 }
